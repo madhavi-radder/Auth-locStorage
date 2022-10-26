@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input id="email1" type="email"  placeholder="enter mail">
+        <input id="pass1" type="password" placeholder="password"> 
+        <button onclick="check()">login</button>
+    </div>
+</body>
+</html>
+
+<script>
+
+    let company_data = JSON.parse(localStorage.getItem("data")); 
+    
+   function check(){
+       let email1 = document.querySelector("#email1").value;
+       let password = document.querySelector("#pass1").value
+       
+       for(var i=0; i<company_data.length; i++){
+           if(company_data[i].email==email1 && company_data[i].password==password){
+               alert("login successful"); 
+            //    break; 
+           }else{
+            alert("wrong password")
+           }
+       }
+   }
+
+</script>

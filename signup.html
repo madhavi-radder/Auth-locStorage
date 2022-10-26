@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h1 {
+        text-align: center;
+      }
+
+      h2 {
+        text-align: center;
+      }
+      body > div {
+        width: 300px;
+        padding: 15px 10px;
+        margin: auto;
+        border: 2px solid black;
+        display: grid;
+      }
+      input,
+      button {
+        padding: 8px 10px;
+        margin: 8px 0px;
+        border-radius: 6px;
+      }
+      u {
+        color: blue;
+      }
+      button:hover {
+        background-color: blue;
+        color: blanchedalmond;
+      }
+      button:active {
+        margin: 3px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>masai</h1>
+    <div>
+      <h2>sign Up</h2>
+      <label for="">Full name</label>
+      <input id="name" type="text" placeholder="Enter your full name" />
+      <label for=""> Email </label>
+      <input type="email" name="" id="email" placeholder="Enetr email" />
+      <label for="">password</label>
+      <input type="password" id="pass" placeholder="Enter password" />
+
+      <p>
+        By signing up ,i accept the masai School <u>Terms of service</u> and
+        acknowledge the <u>privacy Policy</u>
+      </p>
+      <button onclick="mysign()">SIGN UP</button>
+      <p>Already have an Account?<a href="./signin.html">Sign In</a></p>
+    </div>
+  </body>
+</html>
+<script>
+  let data = JSON.parse(localStorage.getItem("data")) || [];
+  console.log(data);
+
+  function mysign() {
+    // event.preventDefault;
+    let full_name = document.querySelector("#name").value;
+    let mail = document.querySelector("#email").value;
+    let password = document.querySelector("#pass").value;
+    let obj = {
+      name: full_name,
+      email: mail,
+      password: password,
+    };
+
+    if (full_name.length != 0 || mail.length != 0 || password.length != 0) {
+      data.push(obj);
+      localStorage.setItem("data", JSON.stringify(data));
+      full_name.innerText = "";
+        alert("login Successfull")
+      window.location.href = "./signin.html";
+    } else {
+        alert("Please fill all info"); 
+    }
+  }
+
+ 
+</script>
