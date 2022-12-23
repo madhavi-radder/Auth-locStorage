@@ -10,6 +10,7 @@
     <div>
         <input id="email1" type="email"  placeholder="enter mail">
         <input id="pass1" type="password" placeholder="password"> 
+        <!-- <input id="phone" type="number" placeholder="enter phone number"> -->
         <button onclick="check()">login</button>
     </div>
 </body>
@@ -18,19 +19,31 @@
 <script>
 
     let company_data = JSON.parse(localStorage.getItem("data")); 
-    
+    let a=false;
    function check(){
        let email1 = document.querySelector("#email1").value;
-       let password = document.querySelector("#pass1").value
+       let password = document.querySelector("#pass1").value;
+      
+    //    let phone=document.querySelector("#phone").value;/
        
-       for(var i=0; i<company_data.length; i++){
-           if(company_data[i].email==email1 && company_data[i].password==password){
-               alert("login successful"); 
-            //    break; 
-           }else{
-            alert("wrong password")
+    company_data.map(function(el){
+    
+        if(el.email==email1 && el.password==password){
+            a=true;
            }
-       }
+          
+    });
+
+        
+     if(a==true){
+        
+        alert("login successful");
+    }     
+    else{
+        alert("wrong password");
+    }
+    a=false;
+
    }
 
 </script>

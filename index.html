@@ -53,7 +53,8 @@
       <input type="email" name="" id="email" placeholder="Enetr email" />
       <label for="">password</label>
       <input type="password" id="pass" placeholder="Enter password" />
-
+      <label for="">phone number</label>
+      <input  id="phone" type="number" placeholder="phone number">
       <p>
         By signing up ,i accept the masai School <u>Terms of service</u> and
         acknowledge the <u>privacy Policy</u>
@@ -72,13 +73,15 @@
     let full_name = document.querySelector("#name").value;
     let mail = document.querySelector("#email").value;
     let password = document.querySelector("#pass").value;
+    let phone=document.querySelector("#phone").value;
     let obj = {
       name: full_name,
       email: mail,
       password: password,
+      phone:phone,
     };
 
-    if (full_name.length != 0 || mail.length != 0 || password.length != 0) {
+    if (full_name.length != 0 || mail.length != 0 || password.length != 0||phone.length!=0) {
       data.push(obj);
       localStorage.setItem("data", JSON.stringify(data));
       full_name.innerText = "";
